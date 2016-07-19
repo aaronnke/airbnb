@@ -1,24 +1,99 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  <div id="header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-    <% end -%>
-  </div>
+	<html>
+		<head>
 
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
-  </div>
+			<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		  <%= javascript_include_tag 'application' %>
+		  <%= csrf_meta_tag %>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <%= yield %>
-</body>
+		  <!--============================== Google MDL ==============================-->
+		  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.pink-red.min.css">
+		  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+		  <title>Airbnb</title>
+
+	  </head>
+
+		<body>
+
+			<div id="nav-bar">
+				<div id="logo">
+					<a href="http://localhost:3000">airbnb</a>
+				</div>
+
+				<div id="become-a-host">
+					Become a Host
+				</div>
+
+				<div id="signup-button">
+					Sign Up
+				</div>
+
+				<% if signed_in? %>
+					<div id="login-button">
+						<%= link_to 'Sign Out', sign_out_path, method: :delete %>
+					</div>
+
+				<% else %>
+					<div id="login-button">
+						Log In
+					</div>
+
+				<% end %>
+			</div>
+
+			<div id="signup-form">
+			  <%= form_for User.new do |form| %>
+			  	<a id="facebook-signup-button" href="http://localhost:3000/auth/facebook">Sign up with Facebook</a>
+
+					<%= form.submit id: "email-signup-div", value: "Sign up with email below" %>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					  <%= form.text_field :name, type: 'string', required: true, class: "mdl-textfield__input", id: "signup-name" %>
+					  <%= form.label :Name, class: "mdl-textfield__label", for: "signup-name" %>
+					</div>
+
+					 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					  <%= form.text_field :email, type: 'email', required: true, class: "mdl-textfield__input", id: "signup-email" %>
+					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %> 
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= form.password_field :password, type: 'password', required: true, class: "mdl-textfield__input", id: "signup-password" %>
+					  <%= form.label :password, class: "mdl-textfield__label", for: "signup-password" %>
+					</div>
+
+				<% end %>
+			</div>
+
+			<div id="login-form">
+
+			  <%= form_for :session, url: session_path do |form| %>
+			  	<a id="facebook-signup-button" href="http://localhost:3000/auth/facebook">Log in with Facebook</a>
+
+					<%= form.submit id: "email-signup-div", value: "Log in with email below" %>
+
+					 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					  <%= form.text_field :email, type: 'email', required: true, class: "mdl-textfield__input", id: "signup-email" %>
+					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %> 
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= form.password_field :password, type: 'password', required: true, class: "mdl-textfield__input", id: "signup-password" %>
+					  <%= form.label :password, class: "mdl-textfield__label", for: "signup-password" %>
+					</div>
+
+				<% end %>
+
+			</div>
+
+
+			<div id="signup-form-overlay">
+			</div>
+
+
+			<%= yield %>
+
+		</body>
 </html>

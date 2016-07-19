@@ -1,3 +1,141 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#nav-bar {
+	position: absolute;
+	top: 0vh;
+	background: transparent;
+	z-index:1;
+	color: white;
+	font-size: 14px;
+	width: 100vw;
+}
+
+#logo a {
+	font-size: 22px;
+	display: inline-block;
+	left: 3vw;
+	top: 3vh;
+	position: absolute;
+	text-decoration: none;
+	color: white;
+}
+
+a:hover { 
+  background: none !important;
+}
+
+a:visited {
+	color: white;
+	text-decoration: none !important;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+#become-a-host {
+	display: inline-block;
+	left: 80vw;
+	position: absolute;
+	top: 2vh;
+	cursor: pointer;
+	border: 2px solid white;
+	padding: 5px;
+}
+
+#signup-button {
+	display: inline-block;
+	position: absolute;
+	left: 90vw;
+	top: 3vh;
+	cursor: pointer;
+}
+
+#login-button {
+	display: inline-block;
+	position: absolute;
+	left: 95vw;
+	top: 3vh;
+	cursor: pointer;
+}
+
+#hero-image {
+	background-image: url("http://thespaces.com/wp-content/uploads/2015/09/Tokyo-Nakagin-Capsule-Mori-Art-Museum-.jpg");
+	background-position: center;
+	height: 85vh;
+	width: 100vw;
+	top: 0vh;
+	position: absolute;
+	z-index: 0;
+}
+
+#signup-form {
+	position: absolute;
+	z-index: 3;
+	left: 35vw;
+	top: 20vh;
+	width: 30vw;
+	height: 60vh;
+	display: none;
+	background-color: white;
+	border-radius: 1%;
+	text-align: center;
+}
+
+#login-form {
+	position: absolute;
+	z-index: 3;
+	left: 35vw;
+	top: 20vh;
+	width: 30vw;
+	height: 60vh;
+	display: none;
+	background-color: white;
+	border-radius: 1%;
+	text-align: center;
+}
+
+
+#signup-form-overlay {
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	position: absolute;
+	z-index: 2;
+	opacity: 0.6;
+	background-color: black;
+}
+
+#facebook-signup-button {
+    background-color: #1565c0;
+    border: none;
+    color: white;
+    padding: 3vh 7vw;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 3vh 1vw;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#facebook-signup-button:hover {
+	background-color: #1565c0 !important;
+}
+
+#email-signup-div {
+    background-color: #e57373;
+    border: none;
+    color: white;
+    padding: 3vh 6.1vw 3vh 6.1vw;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5vh 1vw 1vh 1vw;
+    display: inline-block;
+}
+
