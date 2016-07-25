@@ -1,23 +1,61 @@
 Rails.application.routes.draw do
 
+  # --------------------------------------- Users ---------------------------------------
+  get "/listings/search" => "listings#search", as: "listing_search"
+  get "/listings/filter_search" => "listings#filter_search", as: "filter_search"
+  # get "/listings/search" => "listings#show_search" as: "listing_results"
+  get "/listings/live_search" => "listings#live_search", as: "live_search"
+  resources :users, only: [:show, :edit, :update, :destroy, :create]
+
+
+  concern :paginatable do
+  get '(page/:page)', :action => :index, :on => :collection, :as => ''
+end
+
+resources :listings, :concerns => :paginatable
+
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
   resources :users, controller: "clearance/users", only: [:create] do
+    get "/reservations" => "reservations#index", as: "reservation_index"
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
+    resources :listings, only: :index
   end
+
+  resources :listings, except: [:new, :index] do
+    resources :reservations, except: [:create]
+    post "/reservations" => "reservations#create", as: "reservation_create"
+  end
+
+
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  resources :users, only: [:show, :edit, :update, :destroy, :create]
 
   root 'users#home'
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
+
+  # --------------------------------------- Listings ---------------------------------------
+
+  get "/become_a_host" => "listings#new"
+  # post "/start_hosting" => "listings#create", as: "listing_create"
+  # get "/:id/listings" => "listings#index", as: "listing_index"
+  # get "/listings/:id" => "listings#show", as: "listing_show"
+
+
+
+
+
+
+
+# --------------------------------------- Crap ---------------------------------------
   # delete "/sign_out" => "sessions#destroy"
 
   # The priority is based upon order of creation: first created -> highest priority.

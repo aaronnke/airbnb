@@ -1,0 +1,30 @@
+			  <div id="nav-bar-overlay">
+</div>
+
+<div id="container">
+			  <%= form_for @user, :html => {:multipart => true} do |form| %>
+
+			  <%= image_tag @user.avatar.url.to_s %>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					  <%= form.text_field :name, type: 'string', required: true, class: "mdl-textfield__input", id: "signup-name" %>
+					  <%= form.label :Name, class: "mdl-textfield__label", for: "signup-name" %>
+					</div>
+
+					 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					  <%= form.text_field :email, type: 'email', required: true, class: "mdl-textfield__input", id: "signup-email" %>
+					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %> 
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= form.password_field :password, type: 'password', required: true, class: "mdl-textfield__input", id: "signup-password" %>
+					  <%= form.label :password, class: "mdl-textfield__label", for: "signup-password" %>
+					</div>
+
+					<%= form.file_field :avatar %>
+
+					<%= form.submit id: "email-signup-div", value: "Sign up with email below" %>
+
+
+				<% end %>
+
+				</div>

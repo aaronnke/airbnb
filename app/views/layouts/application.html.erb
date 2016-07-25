@@ -7,10 +7,28 @@
 		  <%= csrf_meta_tag %>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+			<!--============================== Materialize ==============================-->
+		  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script> -->
+          
+
 		  <!--============================== Google MDL ==============================-->
 		  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.pink-red.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+		  <!-- Include Date Range Picker Prerequisites -->
+			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+			<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+			<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+			 
+			<!-- Include Date Range Picker -->
+			<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+			<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+
 		  <title>Airbnb</title>
 
 	  </head>
@@ -19,23 +37,40 @@
 
 			<div id="nav-bar">
 				<div id="logo">
-					<a href="http://localhost:3000">airbnb</a>
-				</div>
-
-				<div id="become-a-host">
-					Become a Host
-				</div>
-
-				<div id="signup-button">
-					Sign Up
+					<%= link_to 'airbnb', root_path, data: { turbolinks: false } %>
 				</div>
 
 				<% if signed_in? %>
-					<div id="login-button">
+					<div id="user-profile">
+						<%= image_tag current_user.avatar.thumb.url.to_s, id: "profile-photo" %>
+						<%= current_user.name %>
+					</div>
+					<div id="my-reservations-button">
+						<%= link_to 'My Reservations', user_reservation_index_path(current_user) %>
+					</div>
+					<% if current_user.listings.any? %>
+						<div id="become-a-host">
+							<%= link_to 'Add Listing', '/become_a_host', data: { turbolinks: false } %>
+						</div>
+						<div id="my-listings-button">
+							<%= link_to 'My Listings', user_listings_path(current_user) %>
+						</div>
+					<% else %>
+						<div id="become-a-host">
+							<a href="http://localhost:3000/become_a_host">Become a Host</a>
+						</div>
+					<% end %>
+
+					<div id="logout-button">
 						<%= link_to 'Sign Out', sign_out_path, method: :delete %>
 					</div>
 
+
 				<% else %>
+					<div id="signup-button">
+						Sign Up
+					</div>
+
 					<div id="login-button">
 						Log In
 					</div>

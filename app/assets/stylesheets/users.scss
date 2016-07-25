@@ -23,6 +23,7 @@
 	color: white;
 }
 
+
 a:hover { 
   background: none !important;
 }
@@ -33,7 +34,7 @@ a:visited {
 }
 
 a {
-	color: white;
+	color: white !important;
 	text-decoration: none;
 }
 
@@ -63,6 +64,14 @@ a {
 	cursor: pointer;
 }
 
+#logout-button {
+	display: inline-block;
+	position: absolute;
+	left: 95vw;
+	top: 3vh;
+	cursor: pointer;
+}
+
 #hero-image {
 	background-image: url("http://thespaces.com/wp-content/uploads/2015/09/Tokyo-Nakagin-Capsule-Mori-Art-Museum-.jpg");
 	background-position: center;
@@ -71,6 +80,29 @@ a {
 	top: 0vh;
 	position: absolute;
 	z-index: 0;
+}
+
+#search-bar-underlay {
+	position: absolute;
+	width: 100vw;
+	height: 15vh;
+	top: 70vh;
+	background-color: black;
+	opacity: 0.5;
+}
+
+#search-bar-input {
+	position: absolute;
+	top: 75vh;
+	left: 50vw;
+	width: 20vw;
+	background-color: white;
+}
+
+#search-bar-submit {
+	position: absolute;
+	top: 75vh;
+	left: 70vw;
 }
 
 #signup-form {
@@ -138,4 +170,26 @@ a {
     margin: 5vh 1vw 1vh 1vw;
     display: inline-block;
 }
+
+#profile-photo {
+	width: 7.5vh;
+	height: 7.5vh;
+	border-radius: 100%;
+	border: 2px solid white;
+}
+
+#user-profile {
+	position: absolute;
+	left: 60vw;
+	top: 1vh;
+	z-index: 10;
+}
+
+#my-reservations-button {
+	left: 70vw;
+	top: 3vh;
+	position: absolute;
+	color: white;
+}
+
 

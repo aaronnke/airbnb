@@ -1,12 +1,20 @@
 class UsersController < Clearance::UsersController
 
+
 	def show
+		@user = User.find(params[:id])
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def update
+		@user = User.find(params[:id])
+		@user.update (user_update_params)
+
+
+		redirect_to @user
 	end
 
 	def destroy
@@ -34,4 +42,9 @@ private
   def user_params
     params[Clearance.configuration.user_parameter] || Hash.new
   end
+
+    def user_update_params
+    params.require(:user).permit(:name, :email, :password, :avatar)
+  end
+
 end

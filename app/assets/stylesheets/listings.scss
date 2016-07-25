@@ -1,3 +1,77 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#nav-bar-overlay {
+	z-index: 0;
+	background-color: #ef5350;
+	width: 100vw;
+	height: 10vh;
+}
+
+#filters-menu {
+	height: 30vh;
+	width: 100vw;
+	padding-left: 20vw;
+	background-color: white;
+	display: none;
+}
+
+#filters-button {
+	left: 10vw;
+}
+
+#container {
+	top: 10vh;
+	width: 100vw;
+}
+
+#become-a-host-form {
+	top: 20vh;
+	left: 15vw;
+	width: 70vw;
+	position: absolute;
+}
+
+
+#my-listings-button {
+	display: inline-block;
+	left: 87.5vw;
+	position: absolute;
+	top: 2vh;
+	cursor: pointer;
+	padding: 5px;
+}
+
+#my-listings-all {
+	top: 20vh;
+	left: 15vw;
+	width: 70vw;
+	position: absolute;
+}
+
+.listing-link {
+	color: black !important;
+}
+
+#listing-card {
+	top: 20vh;
+	left: 15vw;
+	width: 70vw;
+	position: absolute;
+}
+
+.other-listing-photo {
+	display: none;
+}
+
+#live-search-results {
+	display:none;
+	background-color: white;
+	width: 20vw;
+	height: 40vh;
+	position: absolute;
+	top: 35vh;
+	left: 50vw;
+	z-index: 5;
+}

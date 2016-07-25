@@ -1,0 +1,33 @@
+  <%= form_for @listing do |form| %>
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		  <%= form.text_field :name, required: true, class: "mdl-textfield__input", id: "listing-name" %>
+		  <%= form.label :Name, class: "mdl-textfield__label", for: "listing-name" %>
+		</div>
+
+		 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		  <%= form.text_field :location, required: true, class: "mdl-textfield__input", id: "listing-location" %>
+		  <%= form.label :Location, class: "mdl-textfield__label", for: "listing-location" %>
+		</div>
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<%= form.text_field :listing_type, required: true, class: "mdl-textfield__input", id: "listing-type" %>
+		  <%= form.label :Type, class: "mdl-textfield__label", for: "listing-type" %>
+		</div>
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<%= form.number_field :guests, required: true, class: "mdl-textfield__input", id: "listing-guests" %>
+		  <%= form.label :Guests, class: "mdl-textfield__label", for: "listing-guests" %>
+		</div>
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<%= form.number_field :price, required: true, class: "mdl-textfield__input", id: "listing-price" %>
+		  <%= form.label :Price, class: "mdl-textfield__label", for: "listing-price" %>
+		</div> <br>
+
+		<%= form.collection_check_boxes :tags, Tag.all , :id, :tag %>
+
+		<%= form.file_field :photos, multiple: true %>
+
+		<%= form.submit 'Submit',id: "host-signup-div", value: "Start Hosting" , class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+	<% end %>

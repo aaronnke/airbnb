@@ -1,0 +1,107 @@
+<div id="nav-bar-overlay">
+</div>
+
+<div id="filters-menu">
+  <%= form_for :filter_search, url: filter_search_path, html: {id: "filter-search-form"}, method: :get  do |form| %>
+
+		<%= form.collection_check_boxes :tags, Tag.all , :id, :tag %>
+
+		<%= form.hidden_field :location, :value => @query %>
+
+		<%= form.submit 'Submit',id: "apply-filters-button", value: "Apply Filters" , class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+	<% end %>
+		
+	</div>
+
+<button id="filters-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+  Filters
+</button>
+
+
+<div id="container">
+	<% @paginatable_array.each.with_index do |listing, index| %>
+		<% if index%2 == 0 %>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--1-col"></div>
+  		<div class="mdl-cell mdl-cell--4-col">
+  			<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  			<% if listing.photos != [] %>
+  				<%= image_tag listing.photos[0].thumb.url.to_s %>
+  			<% end %>
+				  <div class="mdl-card__title">
+				    <h2 class="mdl-card__title-text"><%= listing.name %></h2>
+				  </div>
+				  <div class="mdl-card__supporting-text">
+				  <p> Location: <%= listing.location %> | Type: <%= listing.listing_type %> </p>
+				  <p> Guests: <%= listing.guests %> | Price: <%= listing.price %> </p>
+				  </div>
+				  <div class="mdl-card__actions mdl-card--border">
+				    <a href="http://localhost:3000/listings/<%=listing.id %>" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				      More Info
+				    </a>
+				  </div>
+				  <div class="mdl-card__menu">
+				    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+				      <i class="material-icons">share</i>
+				    </button>
+				  </div>
+				</div>
+			</div>
+		<% else %>
+		<div class="mdl-cell mdl-cell--1-col"></div>
+		<div class="mdl-cell mdl-cell--4-col">
+  			<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  			<% if listing.photos != [] %>
+  				<%= image_tag listing.photos[0].thumb.url.to_s %>
+  			<% end %>
+				  <div class="mdl-card__title">
+				    <h2 class="mdl-card__title-text"><%= listing.name %></h2>
+				  </div>
+				  <div class="mdl-card__supporting-text">
+				  <p> Location: <%= listing.location %> | Type: <%= listing.listing_type %> </p>
+				  <p> Guests: <%= listing.guests %> | Price: <%= listing.price %> </p>
+				  </div>
+				  <div class="mdl-card__actions mdl-card--border">
+				    <a href="http://localhost:3000/listings/<%=listing.id %>" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				      More Info
+				    </a>
+				  </div>
+				  <div class="mdl-card__menu">
+				    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+				      <i class="material-icons">share</i>
+				    </button>
+				  </div>
+				</div>
+			</div>
+  	</div>
+
+		<% end %>
+	<% end %>
+</div>
+
+<div id ="test">
+<%= @query %>
+</div>
+
+
+	<%= paginate @paginatable_array, :params => {:query => @query} %>
+
+
+		<!-- Wide card with share menu button -->
+		<style>
+		.demo-card-wide.mdl-card {
+		  width: 512px;
+		}
+		.demo-card-wide > .mdl-card__title {
+		  color: #fff;
+		  height: 176px;
+		  background-color: black;
+		}
+		.demo-card-wide > .mdl-card__menu {
+		  color: #fff;
+		}
+		</style>
+
+
+
+

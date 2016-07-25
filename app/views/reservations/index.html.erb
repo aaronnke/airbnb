@@ -1,0 +1,15 @@
+<div id="nav-bar-overlay">
+</div>
+
+<div id="container">
+	<% @reservations.each do |reservation| %>
+	<div class= "reservation-card">
+		<% if Listing.find(reservation.listing_id).photos != [] %>
+	  	<%= image_tag Listing.find(reservation.listing_id).photos[0].thumb.url.to_s %>
+	  <% end %>
+		<p> <a class="normal-links" href= "http://localhost:3000/listings/<%= reservation.listing_id %>"> <%= Listing.find(reservation.listing_id).name %> </a> </p>
+		<p> <%= reservation.start_date %> </p>
+		<p> <%= reservation.end_date %> </p> 
+	</div>
+	<% end %>
+</div>

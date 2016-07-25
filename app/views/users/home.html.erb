@@ -1,2 +1,19 @@
 <div id="hero-image">
 	</div>
+
+	<div id="search-bar-underlay">
+	</div>
+
+
+
+<%= form_for :search, url: listing_search_path, method: :get  do |form| %>
+
+	<%= form.text_field :query, required: true, class: "mdl-textfield__input", id: "search-bar-input" %>
+
+	<%= form.submit 'Submit', id: "search-bar-submit", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+
+<% end %>
+
+<div id="live-search-results">
+
+</div>
