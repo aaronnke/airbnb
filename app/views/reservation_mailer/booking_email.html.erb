@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> You've received a booking for <%= @reservation.listing.name %>! </h1>
+    <p>
+      Your guest, <%= @customer.name %> has selected your place to stay in <%= @reservation.listing.location %> from <%= @reservation.start_date %> to <%= @reservation.end_date %>.
+    </p>
+    <p>
+    	Check your reservation <%= link_to 'here', listing_url(@reservation.listing_id) %>.
+    </p>
+  </body>
+</html>

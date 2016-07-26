@@ -25,14 +25,27 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+# Use Clearance for lightweight user authentication.
 gem 'clearance'
+
+# Use Figaro to store sensitive information.
 gem 'figaro'
+
+# User Omniauth + Facebook for Facebook Log In
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+# Use Carrierwave for image upload. Mini_magick to resize uploads. Fog to connect to AWS storage.
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+# Use kaminari for pagination.
 gem 'kaminari'
+
+# Use sidekiq for background jobs (email)
+gem 'sidekiq'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

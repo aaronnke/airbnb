@@ -2,7 +2,7 @@
 </div>
 
 <div id="listing-card">
-<div id="listing-photo-container">
+	<div id="listing-photo-container">
 	<% if @listing.photos != [] %>
 		<% @listing.photos.each.with_index do |useless, index| %>
 			<% if index == 0 %>
@@ -24,19 +24,38 @@
 
 	<% if current_user.id == @listing.user.id %>
 		<% @listing_edit_path = "http://localhost:3000/listings/" + @listing.id.to_s + "/edit" %>
-		<%= link_to "Edit", @listing_edit_path, method: :get, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent " %>
-	<% elsif %>
+		<%= button_to "Edit", @listing_edit_path, method: :get, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent " %>
+	<% elsif (@listing.reservations.where(user_id: current_user.id).empty? != true) %>
   	<%= form_for [@listing, @reservation], :html => {:id => "reservation-submit-form"} do |form| %>
 			<input type="text" name="daterange" value="01/01/2016 - 01/31/2016" />
 			<%= form.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent", value: "Edit Booking" %>
 		<% end %>
 	<% else %>
-	  <%= form_for [@listing, @reservation], :html => {:id => "reservation-submit-form"} do |form| %>
+	  <%= form_for [@listing, @reservation], :html => {:id => "reservation-submit-form"}, :url => { :controller => "reservations", :action => "create" } do |form| %>
 			<input type="text" name="daterange" value="01/01/2016 - 01/31/2016" />
 			<%= form.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent", value: "Book Now" %>
 		<% end %>
 	<% end %>
 </div>
+
+
+<% if current_user.id == @listing.user.id %>
+	<div id="bookings">
+	<% unless @listing.reservations.empty? %>
+		<% @listing.reservations.each do |reservation| %>
+			<p> Guest: <%= reservation.user.name %> </p>
+			<p> Start: <%= reservation.start_date %> </p>
+			<p> End: <%= reservation.end_date %> </p>
+			<% if (reservation.start_date == reservation.end_date) %>
+			<p> Stay: One night </p>
+			<% else %>
+				<p> Stay: <%= (reservation.start_date..reservation.end_date).to_a.size %> nights </p>
+			<% end %>
+		<% end %>
+	<% end %>
+	</div>
+<% end %>
+
 
 
 <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # --------------------------------------- Users ---------------------------------------
   get "/listings/search" => "listings#search", as: "listing_search"
   get "/listings/filter_search" => "listings#filter_search", as: "filter_search"
-  # get "/listings/search" => "listings#show_search" as: "listing_results"
   get "/listings/live_search" => "listings#live_search", as: "live_search"
+  
   resources :users, only: [:show, :edit, :update, :destroy, :create]
 
 

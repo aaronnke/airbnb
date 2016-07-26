@@ -7,6 +7,12 @@ $(document).ready(function () {
       url: this.action,
       data: $("#reservation-submit-form").serializeArray(),
       success: function(data) {
+        var notification = document.querySelector('.mdl-js-snackbar');
+        notification.MaterialSnackbar.showSnackbar(
+          {
+          message: 'Booked!'
+          }
+        );
       },
       error:  function(data) {
       	$("#booking-error-message").show();

@@ -23,6 +23,12 @@
 	color: white;
 }
 
+#my-bookings {
+	position: absolute;
+	left: 62vw;
+	top: 3vh;
+}
+
 
 a:hover { 
   background: none !important;
@@ -180,7 +186,7 @@ a {
 
 #user-profile {
 	position: absolute;
-	left: 60vw;
+	left: 52vw;
 	top: 1vh;
 	z-index: 10;
 }

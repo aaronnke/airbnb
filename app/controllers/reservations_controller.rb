@@ -8,6 +8,9 @@ class ReservationsController < ApplicationController
 	def new
 	end
 
+	def bookings
+	end
+
 	def create
 		booked = false
 		@listing = Listing.find(params[:listing_id])
@@ -24,10 +27,12 @@ class ReservationsController < ApplicationController
 			@reservation.start_date = params[:daterange].slice(0..9)
 			@reservation.end_date = params[:daterange].slice(13..22)
 			@reservation.save
-			redirect_to request.referrer
+
+			ReservationMailer.booking_email(current_user, @listing.user, @reservation).deliver_later
+			# SendEmailJob.perform_later(current_user, @listing.user, @reservation)
+			render json: { head: :ok }
 		else
-			@error = "Sorry, it's been booked at these dates. Our developer is too noob to prevent you from selected already-booked dates, so take another wild guess!"
-			render json: @error
+			render json: "not a json"
 		end
 
 	end
@@ -47,10 +52,12 @@ class ReservationsController < ApplicationController
 			@reservation.start_date = params[:daterange].slice(0..9)
 			@reservation.end_date = params[:daterange].slice(13..22)
 			@reservation.save
-			redirect_to request.referrer
+
+			ReservationMailer.booking_email(current_user, @listing.user, @reservation).deliver_later
+			# SendEmailJob.perform_later(current_user, @listing.user, @reservation)
+			render json: { head: :ok }
 		else
-			@error = "Sorry, it's been booked at these dates. Our developer is too noob to prevent you from selected already-booked dates, so take another wild guess!"
-			render json: @error
+			render json: "not a json"
 		end
 	end
 
