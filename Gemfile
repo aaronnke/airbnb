@@ -55,11 +55,13 @@ gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 gem 'searchkick'
 
-# User rails_12_factor
+# Use rails_12_factor
 gem 'rails_12factor'
 
 # Use Unicorn as the app server
 gem 'unicorn'
+
+# Use foreman to start / stop servers
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
