@@ -51,8 +51,6 @@ gem 'sidekiq'
 gem 'braintree'
 
 # Use elasticsearch for searching, searchkick for advanced features
-gem 'elasticsearch-rails'
-gem 'elasticsearch-model'
 gem 'searchkick'
 
 # Use rails_12_factor
