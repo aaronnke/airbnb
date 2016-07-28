@@ -1,8 +1,18 @@
 $(document).ready(function () {
 
+  $(window).scroll(function(event) {
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+      more_posts_url = $('.pagination .next a').attr('href')
+      $('.pagination').html('asd')
+      componentHandler.upgradeDom()
+      $.getScript(more_posts_url)
+    }
+  });
+
+
 	$("#filters-button").click(function () {
 		$("#filters-menu").toggle();
-	})
+	});
 
   clicks = 0;
   target = "#listing-photo-" + String(clicks);
@@ -14,41 +24,32 @@ $(document).ready(function () {
     clicks += 1;
     target = "#listing-photo-" + String(clicks);
     next_target = "#listing-photo-" + String(clicks + 1);
-  })
+  });
 
 
 
-$('input[name="daterange"]').daterangepicker({
+date = new Date();
+day = date.getDate();
+month = date.getMonth()+1;
+year = date.getFullYear();
+fullDate = day + "-" + month + "-" + year;
+
+
+$("#search-dates").daterangepicker({
     locale: {
       format: 'DD-MM-YYYY'
     },
-    startDate: '01-08-2016',
-    endDate: '31-08-2016'
+    startDate: fullDate,
+    endDate: fullDate
 });
 
-
-
-
-// $(window).scroll(function() {
-//    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-//       event.preventDefault();
-//       $.ajax({
-//       type: "GET",
-//       url: "/listings/filter_search",
-//       data: $("#filter-search-form").serializeArray(),
-//       success: function(data) {
-//         htmlString = ""
-//         $.each(data, function(index, json){
-//           nameString = json.name
-//           htmlString = htmlString + "<p>" + nameString + "</p>"
-//         })
-
-//         $("#container").html(htmlString); // replace the "results" div with the results
-
-//       },
-//     });
-//   }
-// }
+$("input[name='daterange']").daterangepicker({
+    locale: {
+      format: 'DD-MM-YYYY'
+    },
+    startDate: fullDate,
+    endDate: fullDate
+});
 
 
 	$("#apply-filters-button").click(function () {

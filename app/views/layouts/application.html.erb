@@ -21,12 +21,21 @@
 
 		  <!-- Include Date Range Picker Prerequisites -->
 			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+			<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 			<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
 			 
 			<!-- Include Date Range Picker -->
 			<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 			<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+
+			<!--============================== Braintree ==============================-->
+			<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+
+			<!--============================== Typeahead ==============================-->
+			<script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.jquery.js"></script>
 
 
 		  <title>Airbnb</title>
@@ -40,30 +49,39 @@
 					<%= link_to 'airbnb', root_path, data: { turbolinks: false } %>
 				</div>
 
+
 				<% if signed_in? %>
-					<div id="user-profile">
+					<div id="user-profile-button">
+						<%= current_user.name.split(" ").first %>
 						<%= image_tag current_user.avatar.thumb.url.to_s, id: "profile-photo" %>
-						<%= current_user.name %>
 					</div>
-					<div id="my-reservations-button">
-						<%= link_to 'My Reservations', user_reservation_index_path(current_user) %>
+					<div id="user-profile-menu">
+					<div class="user-profile-action-div"><%= link_to 'Edit Profile', edit_user_path(current_user), class: "black-link user-profile-action-link" %></div>
+					<div class="user-profile-action-div"><%= link_to 'Log Out', sign_out_path, method: :delete, class: "black-link user-profile-action-link" %></div>
 					</div>
+
+					<div id="user-trips-button">
+						<%= link_to 'Trips', user_reservation_index_path(current_user), class: "navbar-link" %>
+						<i class="material-icons">flight_takeoff</i>
+					</div>
+
 					<% if current_user.listings.any? %>
-						<div id="become-a-host">
-							<%= link_to 'Add Listing', '/become_a_host', data: { turbolinks: false } %>
+						<div id="user-host-button">
+							<%= link_to 'Host', '/become_a_host', data: {turbolinks: false}, class: "navbar-link" %>
+							<i class="material-icons">home</i>
 						</div>
-						<div id="my-listings-button">
-							<%= link_to 'My Listings', user_listings_path(current_user) %>
+						<div id="user-host-menu">
+							<div class="user-profile-action-div"><%= link_to 'Add Listing', '/become_a_host', data: { turbolinks: false }, class: "black-link user-profile-action-link" %></div>
+							<div class="user-profile-action-div"><%= link_to 'My Listings', user_listings_path(current_user), class: "black-link user-profile-action-link" %></div>
 						</div>
+
 					<% else %>
 						<div id="become-a-host">
 							<a href="http://localhost:3000/become_a_host">Become a Host</a>
 						</div>
 					<% end %>
 
-					<div id="logout-button">
-						<%= link_to 'Sign Out', sign_out_path, method: :delete %>
-					</div>
+
 
 
 				<% else %>

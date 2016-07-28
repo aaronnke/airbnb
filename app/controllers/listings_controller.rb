@@ -35,11 +35,11 @@ class ListingsController < ApplicationController
 		#render edit.html.erb
 	end
 
-	def search
-		@entries = Listing.order(:price).search params[:search][:query]
-		@query = params[:search][:query]
-		@paginatable_array = Kaminari.paginate_array(@entries).page(params[:page]).per(2)
-	end
+	# def search
+	# 	@entries = Listing.order(:price).search params[:search][:query]
+	# 	@query = params[:search][:query]
+	# 	@paginatable_array = Kaminari.paginate_array(@entries).page(params[:page]).per(2)
+	# end
 
 	def filter_search
 		@tags = []
@@ -59,14 +59,14 @@ class ListingsController < ApplicationController
 	end
 
 		
-	def live_search
-		if params[:value] != ""
-			@entries = Listing.search(params[:value])
-		else
-			@entries = "all"
-		end
-			render json: @entries
-	end
+	# def live_search
+	# 	if params[:value] != ""
+	# 		@entries = Listing.search(params[:value])
+	# 	else
+	# 		@entries = "all"
+	# 	end
+	# 		render json: @entries
+	# end
 
 	def update
 		@tags = []

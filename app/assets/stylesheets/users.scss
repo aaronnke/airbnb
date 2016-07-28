@@ -3,6 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$airbnb-red: #e57373;
+
+
+a:hover { 
+  background: none !important;
+  text-decoration: none !important;
+}
+
+a:visited {
+	color: white;
+	text-decoration: none !important;
+}
+
+a {
+	text-decoration: none;
+	color: white !important;
+}
+
+.black-link {
+	color: black !important;
+	text-decoration: none !important;
+}
+
+
 #nav-bar {
 	position: absolute;
 	top: 0vh;
@@ -23,30 +47,88 @@
 	color: white;
 }
 
-#my-bookings {
+#user-profile-button {
 	position: absolute;
-	left: 62vw;
-	top: 3vh;
+	left: 90vw;
+	top: 2vh;
+	z-index: 2;
+	height: 8vh;
+	width: 7.5vw;
+	text-align: center;
+}
+
+#profile-photo {
+	width: 5vh;
+	height: 5vh;
+	border-radius: 100%;
+	border: 2px solid white;
+}
+
+#user-profile-menu {
+	position: absolute;
+	left: 79vw;
+	top: 8vh;
+	z-index: 2;
+	height: 30vh;
+	width: 17.5vw;
+	background-color: white;
+	border-radius: 1px;
+	display: none;
+	text-align: center;
+}
+
+.user-profile-action-div {
+	width: 15vw;
+	margin: 0vh 1.25vw;
+	padding: 2vh 0vw;
+	border-bottom: 1px solid black;
+}
+
+.user-profile-action-link {
+	padding: 2vh 4vw;
 }
 
 
-a:hover { 
-  background: none !important;
-}
-
-a:visited {
+#user-trips-button {
+	left: 82.5vw;
+	top: 2.25vh;
+	width: 7.5vw;
+	height: 8vh;
+	position: absolute;
 	color: white;
-	text-decoration: none !important;
 }
 
-a {
-	color: white !important;
-	text-decoration: none;
+.navbar-link {
+	vertical-align: 5px;
 }
+
+#user-host-button {
+	left: 72.5vw;
+	top: 2.25vh;
+	position: absolute;
+	height: 8vh;
+	width: 7.5vw;
+	text-align: center;
+}
+
+#user-host-menu {
+	position: absolute;
+	left: 62.5vw;
+	top: 8vh;
+	z-index: 2;
+	height: 30vh;
+	width: 17.5vw;
+	background-color: white;
+	border-radius: 1px;
+	display: none;
+	text-align: center;
+}
+
+
 
 #become-a-host {
 	display: inline-block;
-	left: 80vw;
+	left: 30vw;
 	position: absolute;
 	top: 2vh;
 	cursor: pointer;
@@ -63,14 +145,6 @@ a {
 }
 
 #login-button {
-	display: inline-block;
-	position: absolute;
-	left: 95vw;
-	top: 3vh;
-	cursor: pointer;
-}
-
-#logout-button {
 	display: inline-block;
 	position: absolute;
 	left: 95vw;
@@ -100,15 +174,73 @@ a {
 #search-bar-input {
 	position: absolute;
 	top: 75vh;
-	left: 50vw;
-	width: 20vw;
-	background-color: white;
+	left: 25vw;
+	width: 27.5vw;
+	height: 5vh;
+	background-color: white !important;
+	border-radius: 2px;
+	border: 0;
+}
+
+#search-dates {
+	position: absolute;
+	top: 75vh;
+	left: 52.5vw;
+	width: 12.5vw;
+	height: 5vh;
+	background-color: white !important;
+	border: 0;
+	border-left: 1px solid $airbnb-red;
+	text-align: center;
 }
 
 #search-bar-submit {
 	position: absolute;
 	top: 75vh;
-	left: 70vw;
+	left: 65vw;
+	width: 10vw;
+	height: 5vh;
+	background-color: $airbnb-red;
+	border: 0;
+	border-radius: 2px;
+	color: white !important;
+}
+
+.ui-autocomplete {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;   
+    padding: 1vh 1vw;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: $airbnb-red;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: $airbnb-red;
+    border-radius: 2px;
+    background-image: none;
 }
 
 #signup-form {
@@ -177,25 +309,7 @@ a {
     display: inline-block;
 }
 
-#profile-photo {
-	width: 7.5vh;
-	height: 7.5vh;
-	border-radius: 100%;
-	border: 2px solid white;
+#pagination {
+	background-color: $airbnb-red;
 }
-
-#user-profile {
-	position: absolute;
-	left: 52vw;
-	top: 1vh;
-	z-index: 10;
-}
-
-#my-reservations-button {
-	left: 70vw;
-	top: 3vh;
-	position: absolute;
-	color: white;
-}
-
 

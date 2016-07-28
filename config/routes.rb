@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+
   # --------------------------------------- Users ---------------------------------------
   get "/listings/search" => "listings#search", as: "listing_search"
   get "/listings/filter_search" => "listings#filter_search", as: "filter_search"
   get "/listings/live_search" => "listings#live_search", as: "live_search"
+  get "/search" => "search#search"
+  get "/autocomplete" => "search#autocomplete"
   
   resources :users, only: [:show, :edit, :update, :destroy, :create]
 
@@ -31,6 +34,7 @@ resources :listings, :concerns => :paginatable
     post "/reservations" => "reservations#create", as: "reservation_create"
   end
 
+  resources :purchases, only: [:new, :create]
 
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"

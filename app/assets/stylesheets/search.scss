@@ -1,0 +1,76 @@
+// Place all the styles related to the search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new-container {
+	left: 5vw;
+	position: absolute;
+}
+
+#filters-menu {
+	height: 30vh;
+	width: 100vw;
+	padding-left: 20vw;
+	background-color: white;
+	display: none;
+}
+
+#filters-div {
+	width: 100vw;
+	height: 10vh;
+}
+
+#filters-button {
+	left: 10vw;
+	top: 2vh;
+}
+
+.listing-card {
+	width: 45vw;
+	height: 50vh;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	margin: 2.5vh 0vw;
+}
+
+.listing-card-price {
+	position: absolute;
+	left: 19%;
+	top: 50%;
+	background-color: black;
+	opacity: 0.7;
+	width: 80px;
+	height: 40px;
+	border-radius: 2px;
+}
+
+.listing-card-price-text {
+	z-index: 1;
+	position: absolute;
+	left: 20%;
+	top: 52%;
+	color: white;
+	font-size: 16px;
+}
+
+.listing-host-photo {
+	border-radius: 100%;
+	border: 2px solid white;
+	width: 7.5vh;
+	height: 7.5vh;
+	position: absolute;
+	z-index: 1;
+	left: 70%;
+	top: 70%;
+}
+
+#infinite-scrolling {
+	display: none;
+}
+
+.listing-loader-div {
+	width: 90vw;
+	height: 10vh;
+	text-align: center;
+}

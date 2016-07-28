@@ -30,6 +30,11 @@
 			<input type="text" name="daterange" value="01/01/2016 - 01/31/2016" />
 			<%= form.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent", value: "Edit Booking" %>
 		<% end %>
+		<% if @listing.reservations.find_by(user_id: current_user.id).purchase == nil %>
+			<%= button_to 'Pay Now', new_purchase_path, params: {listing_id: @listing.reservations.find_by(user_id: current_user.id).id.to_s}, method: :get %>
+		<% else %>
+			<%= button_to 'Payment Made', user_reservation_index_path(current_user.id), method: :get %>
+		<% end %>
 	<% else %>
 	  <%= form_for [@listing, @reservation], :html => {:id => "reservation-submit-form"}, :url => { :controller => "reservations", :action => "create" } do |form| %>
 			<input type="text" name="daterange" value="01/01/2016 - 01/31/2016" />

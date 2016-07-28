@@ -1,0 +1,66 @@
+<div id="nav-bar-overlay">
+</div>
+
+<div id="container">
+	<h1>Confirm your booking:</h1>
+
+
+	<%= form_for(@purchase) do |f| %>
+
+		<div class="field">
+	    <%= f.label :place %><br>
+	    <%= @reservation.listing.name %><br>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :location %><br>
+	    <%= @reservation.listing.location %><br>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :start_date %><br>
+	    <%= @reservation.start_date %><br>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :end_date %><br>
+	    <%= @reservation.end_date %><br>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :price %><br>
+	    <%= @reservation.listing.price %><br>
+	  </div>
+
+	  <div class="field">
+    	<%= f.hidden_field :reservation_id, value: @reservation.id %><br>
+  	</div>
+
+	  <div class="field">
+  		<div id="dropin"></div>
+		</div>
+
+	  <div class="actions">
+	    <%= f.submit value: "Pay Now" %>
+	  </div>
+
+	<% end %>
+</div>
+
+<script type="text/javascript">
+  function setupBT() {
+    braintree.setup("<%= @client_token %>", 'dropin', {
+      container: 'dropin'
+    });
+  }
+
+  if (window.addEventListener)
+    window.addEventListener("load", setupBT, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", setupBT);
+  else window.onload = setupBT;
+
+</script>
+
+
+

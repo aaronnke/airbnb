@@ -1,0 +1,8 @@
+$('#new-container').append('<%= j render @listings %>');
+<% unless @listings.next_page.nil? %>
+<% test = paginate @listings, :params => {:query => @query} %>
+	$('.pagination').replaceWith('<%= j test %>');
+<% else %>
+	$(window).off('scroll');
+	$('.pagination').remove();
+<% end %>

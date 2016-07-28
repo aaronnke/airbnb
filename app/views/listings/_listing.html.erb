@@ -1,0 +1,14 @@
+		<div class="listing-card">
+		  <% unless listing.photos.empty? %>
+				<%= image_tag listing.photos.last.preview.url.to_s, class: "listing-preview-photo" %>
+			<% else %>
+				<%= image_tag Listing.last.photos.last.preview.url.to_s, class: "listing-preview-photo" %>
+			<% end %>
+
+			<div class="listing-card-price"></div>
+			<p class="listing-card-price-text">RM <%= listing.price %></p>
+
+			<%= image_tag listing.user.avatar.thumb.url.to_s, class: "listing-host-photo" %>
+			<p> <%= link_to "#{listing.name} (#{listing.location})", listing_path(listing.id), class: "black-link" %> </p>
+			<p> <%= listing.listing_type %>  |  <%= listing.guests %> guests </p>
+		</div>

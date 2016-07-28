@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,8 +47,19 @@ gem 'kaminari'
 # Use sidekiq for background jobs (email)
 gem 'sidekiq'
 
+# Use braintree as payment method
+gem 'braintree'
+
+# Use elasticsearch for searching, searchkick for advanced features
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'searchkick'
+
+# User rails_12_factor
+gem 'rails_12factor'
+
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
