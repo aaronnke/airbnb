@@ -1,9 +1,6 @@
-require 'elasticsearch/model'
 
 class Listing < ActiveRecord::Base
 
-	include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
   searchkick word_start: [:location]
 
 	belongs_to :user
@@ -26,4 +23,3 @@ class Listing < ActiveRecord::Base
 	# end
 end
 
-Listing.import force: true # for auto sync model with elastic search
