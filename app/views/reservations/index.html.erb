@@ -7,7 +7,7 @@
 		<% if Listing.find(reservation.listing_id).photos != [] %>
 	  	<%= image_tag Listing.find(reservation.listing_id).photos[0].thumb.url.to_s %>
 	  <% end %>
-		<p> <a class="normal-links" href= "http://localhost:3000/listings/<%= reservation.listing_id %>"> <%= Listing.find(reservation.listing_id).name %> </a> </p>
+		<p> <%= link_to "#{Listing.find(reservation.listing_id).name}", listing_path(reservation.listing_id), class: "normal-links" %> </p>
 		<p> <%= reservation.start_date %> </p>
 		<p> <%= reservation.end_date %> </p> 
 	</div>

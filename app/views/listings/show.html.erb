@@ -23,8 +23,7 @@
 	<% end %>
 
 	<% if current_user.id == @listing.user.id %>
-		<% @listing_edit_path = "http://localhost:3000/listings/" + @listing.id.to_s + "/edit" %>
-		<%= button_to "Edit", @listing_edit_path, method: :get, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent " %>
+		<%= button_to "Edit", edit_listing_path(@listing.id), method: :get, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent " %>
 	<% elsif (@listing.reservations.where(user_id: current_user.id).empty? != true) %>
   	<%= form_for [@listing, @reservation], :html => {:id => "reservation-submit-form"} do |form| %>
 			<input type="text" name="daterange" value="01/01/2016 - 01/31/2016" />

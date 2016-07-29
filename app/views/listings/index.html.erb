@@ -3,7 +3,6 @@
 
 <div id="my-listings-all">
 <% @user.listings.each do |listing| %>
-	<% @listing_path = "http://localhost:3000/listings/" + listing.id.to_s %>
-	<%= link_to "#{listing.name}", @listing_path, method: :get, class: "listing-link" %><br>
+	<%= link_to "#{listing.name}", listing_path(listing), method: :get, class: "listing-link" %><br>
 <% end %>
 </div>

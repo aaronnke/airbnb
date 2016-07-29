@@ -52,7 +52,7 @@
 
 				<% if signed_in? %>
 					<div id="user-profile-button">
-						<%= current_user.name.split(" ").first %>
+						<%= current_user.name.split(" ").first unless current_user.name.nil? %>
 						<%= image_tag current_user.avatar.thumb.url.to_s, id: "profile-photo" %>
 					</div>
 					<div id="user-profile-menu">
@@ -77,7 +77,7 @@
 
 					<% else %>
 						<div id="become-a-host">
-							<a href="http://localhost:3000/become_a_host">Become a Host</a>
+							<%= link_to 'Become a Host', become_a_host_path %>
 						</div>
 					<% end %>
 
@@ -98,7 +98,7 @@
 
 			<div id="signup-form">
 			  <%= form_for User.new do |form| %>
-			  	<a id="facebook-signup-button" href="http://localhost:3000/auth/facebook">Sign up with Facebook</a>
+			  	<%= link_to 'Sign up with Facebook', '/auth/facebook', id: "facebook-signup-button" %>
 
 					<%= form.submit id: "email-signup-div", value: "Sign up with email below" %>
 
@@ -123,7 +123,7 @@
 			<div id="login-form">
 
 			  <%= form_for :session, url: session_path do |form| %>
-			  	<a id="facebook-signup-button" href="http://localhost:3000/auth/facebook">Log in with Facebook</a>
+			  	<%= link_to 'Log in with Facebook', '/auth/facebook', id: "facebook-signup-button" %>
 
 					<%= form.submit id: "email-signup-div", value: "Log in with email below" %>
 

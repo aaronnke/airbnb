@@ -43,12 +43,12 @@ resources :listings, :concerns => :paginatable
 
   root 'users#home'
 
-  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth", as: "facebook_signup"
 
 
   # --------------------------------------- Listings ---------------------------------------
 
-  get "/become_a_host" => "listings#new"
+  get "/become_a_host" => "listings#new", as: "become_a_host"
   # post "/start_hosting" => "listings#create", as: "listing_create"
   # get "/:id/listings" => "listings#index", as: "listing_index"
   # get "/listings/:id" => "listings#show", as: "listing_show"

@@ -6,7 +6,6 @@ class ReservationMailer < ApplicationMailer
 		@host = host
 		@reservation = reservation
 		# @url = listing_url(reservation.listing_id)
-		# @url = "http://localhost:3000/listings/" + reservation.listing.id.to_s
 
 		mail(to: @host.email, subject: "#{@host.name}, you have a booking for #{@reservation.listing.name} from #{@customer.name}!")
 	end
