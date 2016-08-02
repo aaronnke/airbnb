@@ -1,8 +1,6 @@
 <div id="nav-bar-overlay">
 </div>
 
-<div id="my-listings-all">
-<% @user.listings.each do |listing| %>
-	<%= link_to "#{listing.name}", listing_path(listing), method: :get, class: "listing-link" %><br>
-<% end %>
+<div id="new-container">
+	<%= render @user.listings %>
 </div>

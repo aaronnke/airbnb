@@ -1,4 +1,6 @@
-<div id="hero-image"> </div>
+<div class="parallax"> </div>
+<h2 class="headline">Belong Anywhere</h2>
+<h6 class="tagline">Book homes from local hosts in 191+ countries and get welcomed just like you live there.</h6>
 
 <div id="search-bar-underlay"> </div>
 
@@ -11,3 +13,23 @@
 	<%= form.submit 'Search', id: "search-bar-submit" %>
 
 <% end %>
+
+<div class="home-content">
+	<h2 class="home-content-headline"> Explore the world </h3>
+	<p class="home-content-tagline"> in the comfort of home. </p>
+
+	<div class="featured-location">
+		<div class="featured-location-photo">
+			<h1 class="featured-location-photo-text">Tokyo</h1>
+		</div>
+		<div class="featured-location-host">
+			<div class="featured-location-host-info">
+				<%= image_tag User.first.avatar.thumb.url.to_s, class: "featured-location-host-photo" %>
+				<p class="featured-location-host-location"> Apartment in Shinjuku  </p>
+				<p class="featured-location-host-name"> Hosted by Aaron </p>
+			</div>
+		</div>
+	</div>
+
+
+</div>

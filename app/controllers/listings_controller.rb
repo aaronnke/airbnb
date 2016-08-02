@@ -11,9 +11,9 @@ class ListingsController < ApplicationController
 
 		@listing = current_user.listings.new(listing_params)
 		if @listing.save
-			redirect_to @listing #show path '/listings/:id'(listing_path(@listing))
+			redirect_to @listing
 		else
-			render :new #render the new.html.erb again
+			render :new
 		end
 	end
 
@@ -31,15 +31,8 @@ class ListingsController < ApplicationController
 	end
 
 	def edit
-		# @listing = Listing.find(params[:id])
-		#render edit.html.erb
-	end
 
-	# def search
-	# 	@entries = Listing.order(:price).search params[:search][:query]
-	# 	@query = params[:search][:query]
-	# 	@paginatable_array = Kaminari.paginate_array(@entries).page(params[:page]).per(2)
-	# end
+	end
 
 	def filter_search
 		@tags = []
@@ -58,15 +51,6 @@ class ListingsController < ApplicationController
 		render json: @filtered_array
 	end
 
-		
-	# def live_search
-	# 	if params[:value] != ""
-	# 		@entries = Listing.search(params[:value])
-	# 	else
-	# 		@entries = "all"
-	# 	end
-	# 		render json: @entries
-	# end
 
 	def update
 		@tags = []

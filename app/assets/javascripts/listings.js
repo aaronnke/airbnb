@@ -1,10 +1,9 @@
 $(document).ready(function () {
 
   $(window).scroll(function(event) {
-   if($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
       more_posts_url = $('.pagination .next a').attr('href')
       $('.pagination').html('asd')
-      componentHandler.upgradeDom()
       $.getScript(more_posts_url)
     }
   });

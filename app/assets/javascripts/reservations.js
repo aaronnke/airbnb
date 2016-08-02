@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	$("#reservation-submit-form").on('submit', function () {
+	$("#reservation-submit-form").on('submit', function (event) {
 		event.preventDefault();
 		$.ajax({
       type: "POST",

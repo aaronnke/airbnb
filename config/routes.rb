@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
 
-  # --------------------------------------- Users ---------------------------------------
-  get "/listings/search" => "listings#search", as: "listing_search"
   get "/listings/filter_search" => "listings#filter_search", as: "filter_search"
-  get "/listings/live_search" => "listings#live_search", as: "live_search"
   get "/search" => "search#search"
   get "/autocomplete" => "search#autocomplete"
-  
+
   resources :users, only: [:show, :edit, :update, :destroy, :create]
 
 
@@ -45,13 +42,7 @@ resources :listings, :concerns => :paginatable
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth", as: "facebook_signup"
 
-
-  # --------------------------------------- Listings ---------------------------------------
-
   get "/become_a_host" => "listings#new", as: "become_a_host"
-  # post "/start_hosting" => "listings#create", as: "listing_create"
-  # get "/:id/listings" => "listings#index", as: "listing_index"
-  # get "/listings/:id" => "listings#show", as: "listing_show"
 
 
 

@@ -1,0 +1,18 @@
+		  <% unless listing.photos.empty? %>
+				<%= image_tag listing.photos.first.full.url.to_s, class: "full-listing-card-photo" %>
+			<% else %>
+				<%= image_tag Listing.first.photos.first.full.url.to_s, class: "full-listing-card-photo" %>
+			<% end %>
+
+			<div class="full-listing-card-price">
+				<p class="full-listing-card-price-text">RM <%= listing.price %>   per Night</p>
+			</div>
+
+			<div class="full-listing-card-host">
+				<%= image_tag listing.user.avatar.thumb.url.to_s, class: "full-listing-card-host-photo" %>
+			</div>
+
+			<div class="full-listing-card-host-details">
+				<p> <%= listing.name %>  |  <%= listing.location %> </p>
+				<p> <%= listing.listing_type %>  |  <%= listing.guests %> guests </p>
+			</div>

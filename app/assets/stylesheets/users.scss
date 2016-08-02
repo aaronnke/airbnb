@@ -4,9 +4,15 @@
 
 
 $airbnb-red: #e57373;
+$fake-white: #f4f4f2;
+$fake-black: #3d3d3d;
+
+body, html {
+    height: 100%;
+}
 
 
-a:hover { 
+a:hover {
   background: none !important;
   text-decoration: none !important;
 }
@@ -34,14 +40,14 @@ a {
 	z-index:1;
 	color: white;
 	font-size: 14px;
-	width: 100vw;
+	width: 100%;
 }
 
 #logo a {
 	font-size: 22px;
 	display: inline-block;
 	left: 3vw;
-	top: 3vh;
+	top: 2.5vh;
 	position: absolute;
 	text-decoration: none;
 	color: white;
@@ -75,6 +81,7 @@ a {
 	border-radius: 1px;
 	display: none;
 	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .user-profile-action-div {
@@ -122,6 +129,7 @@ a {
 	border-radius: 1px;
 	display: none;
 	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -152,19 +160,37 @@ a {
 	cursor: pointer;
 }
 
-#hero-image {
-	background-image: url("http://thespaces.com/wp-content/uploads/2015/09/Tokyo-Nakagin-Capsule-Mori-Art-Museum-.jpg");
-	background-position: center;
-	height: 85vh;
-	width: 100vw;
-	top: 0vh;
+.parallax {
+
+    background-image: url("https://a0.muscache.com/airbnb/static/Live-There_Tokyo_Elliott_Artist-Loft_20160222_0153_comp.jpg");
+
+    height: 85%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.headline {
 	position: absolute;
-	z-index: 0;
+	font-size: 3.5vw;
+	color: white;
+	left: 37%;
+	top: 23.5%;
+}
+
+.tagline {
+	position: absolute;
+	font-size: 1.2vw;
+	color: white;
+	left: 23.6%;
+	top: 36%;
 }
 
 #search-bar-underlay {
 	position: absolute;
-	width: 100vw;
+	width: 100%;
 	height: 15vh;
 	top: 70vh;
 	background-color: black;
@@ -213,7 +239,7 @@ a {
     z-index: 1000;
     float: left;
     display: none;
-    min-width: 160px;   
+    min-width: 160px;
     padding: 1vh 1vw;
     list-style: none;
     background-color: #ffffff;
@@ -221,7 +247,6 @@ a {
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
-
 }
 
 .ui-menu-item > a.ui-corner-all {
@@ -309,7 +334,80 @@ a {
     display: inline-block;
 }
 
-#pagination {
-	background-color: $airbnb-red;
+.home-content {
+	background-color: $fake-white;
+	position: absolute;
+	top: 85%;
+	width: 100%;
+	height: 100%;
+	color: $fake-black;
+	text-align: center;
 }
 
+.home-content-headline {
+	margin-top: 5vh;
+}
+
+.home-content-tagline {
+}
+
+.featured-location {
+	width: 100%;
+	height: 50%;
+  left: 10%;
+}
+
+.featured-location-photo {
+	width: 700px;
+	height: 100%;
+  border-radius: 2px;
+  background-color: $airbnb-red;
+  display: inline-block;
+  position: relative;
+  float: left;
+  margin-left: 12.5%;
+}
+
+
+.featured-location-photo-text {
+	top: 35%;
+	color: white;
+  position: relative;
+}
+
+.featured-location-host {
+	width: 350px;
+	height: 100%;
+  text-align: center;
+  border-radius: 2px;
+  display: inline-block;
+  background-image: url("https://www.cleartrip.com/places/hotels/3926/392628/images/1054530_55_b_w.jpg");
+  position: relative;
+  float: right;
+  margin-right: 12.5%;
+}
+
+.featured-location-host-photo {
+  border-radius: 100%;
+  left: 150px;
+  top: 150px;
+  width: 75px;
+  border: 2px solid white;
+}
+
+.featured-location-host-location {
+  margin-top: 10px;
+  color: white;
+  top: 50%;
+  font-size: 100%;
+}
+
+.featured-location-host-name {
+  color: white;
+  top: 55%;
+}
+
+.featured-location-host-info{
+  position: relative;
+  margin-top: 100px;
+}
