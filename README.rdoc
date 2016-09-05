@@ -1,28 +1,27 @@
-== README
+== FEATURE & TESTING GUIDE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This airbnb mock website was built in Week 6-7 of NEXT Academy's webdev course.
 
-Things you may want to cover:
+*Features include:*
 
-* Ruby version
+* Host and book listings
 
-* System dependencies
+* Elasticsearch for listings (though not necessary)
 
-* Configuration
+* Infinite scroll listings
 
-* Database creation
+* AWS & Carrierwave for image upload (profile, listing)
 
-* Database initialization
+* Sidekiq for booking confirmation (not configured for heroku)
 
-* How to run the test suite
+* Payments via Braintree Sandbox
 
-* Services (job queues, cache servers, search engines, etc.)
+---
 
-* Deployment instructions
+*How to test:*
 
-* ...
+* Sign up with email (FB is not configured for heroku)
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Or use this dummy account:
+  email: mrbean@gmail.com
+  pw: mrbean
