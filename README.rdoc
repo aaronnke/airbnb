@@ -16,14 +16,14 @@ This airbnb mock website was built in Week 6-7 of NEXT Academy's webdev course.
 
 * Payments via Braintree Sandbox
 
-\n
+\
 
 <b>How to test:</b>
 
 * Sign up with email (FB is not configured for heroku)
 
 * Or use this dummy account:
-\n
+\
   email: mrbean@gmail.com
-\n
+\
   pw: mrbean
