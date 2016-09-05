@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("turbolinks:load", function() {
 
   $(window).scroll(function(event) {
    if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("turbolinks:load", function() {
 
 	$("#reservation-submit-form").on('submit', function (event) {
 		event.preventDefault();

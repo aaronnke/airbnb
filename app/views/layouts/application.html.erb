@@ -5,7 +5,7 @@
 			<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		  <%= javascript_include_tag 'application' %>
 		  <%= csrf_meta_tag %>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">          
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		  <!--============================== Google MDL ==============================-->
 		  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,7 +18,7 @@
 			<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 			<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 			<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
-			 
+
 			<!--============================== Date Range Picker ==============================-->
 			<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 			<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
@@ -43,15 +43,19 @@
 				<% if signed_in? %>
 					<div id="user-profile-button">
 						<%= current_user.name.split(" ").first unless current_user.name.nil? %>
-						<%= image_tag current_user.avatar.thumb.url.to_s, id: "profile-photo" %>
+						<% if current_user.avatar.thumb.url.nil? %>
+							<%= image_tag "http://i.istockimg.com/file_thumbview_approve/55221088/6/stock-illustration-55221088-bull-terrier-dog-face-flat-icon-dog-series.jpg", id: "profile-photo" %>
+						<% else %>
+							<%= image_tag current_user.avatar.thumb.url.to_s, id: "profile-photo" %>
+						<% end %>
 					</div>
 					<div id="user-profile-menu">
-					<div class="user-profile-action-div"><%= link_to 'Edit Profile', edit_user_path(current_user), class: "black-link user-profile-action-link" %></div>
-					<div class="user-profile-action-div"><%= link_to 'Log Out', sign_out_path, method: :delete, class: "black-link user-profile-action-link" %></div>
+					<div class="user-profile-action-div"><%= link_to 'Edit Profile', edit_user_path(current_user), data: {turbolinks: false}, class: "black-link user-profile-action-link" %></div>
+					<div class="user-profile-action-div"><%= link_to 'Log Out', sign_out_path, method: :delete, data: {turbolinks: false}, class: "black-link user-profile-action-link" %></div>
 					</div>
 
 					<div id="user-trips-button">
-						<%= link_to 'Trips', user_reservation_index_path(current_user), class: "navbar-link" %>
+						<%= link_to 'Trips', user_reservation_index_path(current_user), class: "navbar-link", data: {turbolinks: false} %>
 						<i class="material-icons">flight_takeoff</i>
 					</div>
 
@@ -62,12 +66,12 @@
 						</div>
 						<div id="user-host-menu">
 							<div class="user-profile-action-div"><%= link_to 'Add Listing', '/become_a_host', data: { turbolinks: false }, class: "black-link user-profile-action-link" %></div>
-							<div class="user-profile-action-div"><%= link_to 'My Listings', user_listings_path(current_user), class: "black-link user-profile-action-link" %></div>
+							<div class="user-profile-action-div"><%= link_to 'My Listings', user_listings_path(current_user), data: {turbolinks: false}, class: "black-link user-profile-action-link" %></div>
 						</div>
 
 					<% else %>
 						<div id="become-a-host">
-							<%= link_to 'Become a Host', become_a_host_path %>
+							<%= link_to 'Become a Host', become_a_host_path, data: {turbolinks: false } %>
 						</div>
 					<% end %>
 
@@ -99,7 +103,7 @@
 
 					 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 					  <%= form.text_field :email, type: 'email', required: true, class: "mdl-textfield__input", id: "signup-email" %>
-					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %> 
+					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %>
 					</div>
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -119,7 +123,7 @@
 
 					 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 					  <%= form.text_field :email, type: 'email', required: true, class: "mdl-textfield__input", id: "signup-email" %>
-					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %> 
+					  <%= form.label :email, class: "mdl-textfield__label", for: "signup-email" %>
 					</div>
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

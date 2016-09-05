@@ -1,4 +1,5 @@
-$(document).ready(function () {
+document.addEventListener("turbolinks:load", function() {
+	
 	$("#user-profile-button, #user-profile-menu").hover(function(){
 		$("#user-profile-menu").show();
     }, function(){
@@ -11,7 +12,7 @@ $(document).ready(function () {
     $("#user-host-menu").hide();
 	});
 
-	$("#search-bar-input").autocomplete({ 
+	$("#search-bar-input").autocomplete({
 		source: "/autocomplete"
 	});
 
