@@ -6,7 +6,9 @@ This airbnb mock website was built in Week 6-7 of NEXT Academy's webdev course.
 
 * Host and book listings
 
-* Elasticsearch for listings (though not necessary)
+* Elasticsearch + autocomplete for listings (though not necessary)
+
+* Filtering by date + inability to double-book
 
 * Infinite scroll listings
 
@@ -24,6 +26,7 @@ This airbnb mock website was built in Week 6-7 of NEXT Academy's webdev course.
 
 * Or use this dummy account:
 
-  email: mrbean@gmail.com
+  <tt>email: mrbean@gmail.com
+  pw: mrbean</tt>
 
-  pw: mrbean
+* Search "Tokyo" for some dummy listings.
