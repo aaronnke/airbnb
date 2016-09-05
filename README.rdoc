@@ -2,7 +2,7 @@
 
 This airbnb mock website was built in Week 6-7 of NEXT Academy's webdev course.
 
-*Features include:*
+<b>Features include:</b>
 
 * Host and book listings
 
@@ -18,7 +18,7 @@ This airbnb mock website was built in Week 6-7 of NEXT Academy's webdev course.
 
 ---
 
-*How to test:*
+<b>How to test:</b>
 
 * Sign up with email (FB is not configured for heroku)
 
